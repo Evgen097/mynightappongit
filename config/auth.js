@@ -12,7 +12,7 @@ module.exports = {
     'twitterAuth' : {
         'consumerKey'       : 'zpsuyFSIixsP3vIxNrT0HV5g5',
         'consumerSecret'    : 'PROA6yVJIny715olyLuXTQzlNpiAJzmISSTMhieRnl8WDNj7u2',
-        'callbackURL'       : 'https://mynightapp-evgenkaban.c9users.io/auth/twitter/callback'
+        'callbackURL'       : 'https://mynigthapp.herokuapp.com/auth/twitter/callback'
     },
 
     'googleAuth' : {
