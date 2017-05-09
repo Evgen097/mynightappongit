@@ -1,0 +1,88 @@
+    <div class="container" class="col-xs-12 col-sm-12 col-md-12" style="width: 100%;  position: relative">
+        <div class="row row-content" ng-controller="MenuController">
+
+
+        
+        <div class="col-xs-12 col-sm-12 col-md-12" style="text-align: center;">
+            <div class="col-xs-1 col-sm-1 col-md-4"> </div> 
+            <form name='form' ng-submit="yelpCaffe(my_location)" class="col-xs-10 col-sm-10 col-md-4">
+              <div class="form-group" >
+                <label for="location">Where you would like to see bars at?</label>
+                <input type="text" class="form-control" id="location" ng-model="my_location" name="text" placeholder="Enter Your City">
+              </div>
+              <button type="submit" id="submit" ng-disabled="!form.$dirty" value="Submit" class="btn btn-info btn-md" style="text-align: center;">SUBMIT</button>
+            </form>
+        </div>     
+
+            <div class="col-xs-12" ng-if="showMessage"><h3>{{message}}</h3></div>
+            <div class="loader" ng-if="showMessage" style="margin: 150px auto";></div>
+            <div class="col-xs-12" ng-if="showConfirmMessage"><h3>{{confirmMessage}}</h3></div>
+            
+            <div class="col-xs-1  col-sm-1 col-md-0" ng-if="showBars"></div> 
+            <div class="col-xs-12  col-sm-12 col-md-7 bars_part " ng-if="showBars" style="margin:  20px 0px 0px 0px;">
+
+                <div class="tab-content">
+                       <ul class="media-list tab-pane fade in active">
+                        <li class="media" ng-repeat="bar in bars">
+                            <div class="media-left media-middle" >
+                                <a class="d-flex pr-3" href="{{bar.url}}">
+                                    <img class="media-object img-thumbnail"
+                                        ng-src={{bar.image_url}} alt="bar.name" style="width:140px; border-radius: 8px;">
+                                </a>
+                            </div>
+                            <div class="media-body" style="border-radius: 10px ; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+                                
+                                <div class="col-xs-12  col-sm-12 col-md-12">
+                                    <h3 class="media-heading" style="padding:  10px 0px 0px 0px"><a class="d-flex pr-3" href="{{bar.url}}">{{bar.name}}</a>
+                                    <span class="label label-danger label-xs" style=" margin:  5px 5px 0px 10px;">{{bar.rating}}</span></h3>
+                                    <span><button type="button" ng-if="!bar.my_confirm_going" ng-click="confirm_my_going()" class="btn btn-primary button_guests" ><span class="badge">{{bar.number_of_guests}}</span> Guests</button></span>
+                                    <span><button type="button" ng-if="bar.my_confirm_going" ng-click="confirm_my_going()" class="btn btn-default button_guests" >  <div class="loader_button"  ng-if="bar.my_confirm_uploading">   </div><span class="badge" ng-if="!bar.my_confirm_uploading">{{bar.number_of_guests}}</span> Guests</button></span>
+
+                                </div>
+                                    <p style="text-align: left; padding:  0px 20px 0px 20px">{{bar.review}}</p>
+                                    <p style="text-align: left; padding:  0px 20px 0px 20px"><i class="fa fa-phone" aria-hidden="true"></i> {{bar.phone}}</p>
+                                    <p></p>
+                                    <p style="color: white; font-size: 20px; font-weight: bold" ng-if="bar.number_of_guests"> List of Guests: </p>
+                                    <ul class="text-xs-left text-md-left" style="text-align: left; margin:  10px 10px 10px 10px">
+                                        <span ng-repeat="bar in bar.guestsNames" class="label label-info  text-left" style=" font-size: 15px; margin:  0px 5px 0px 0px">{{bar}}</span>
+                                    </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            
+            <div class="col-xs-12 col-xs-offset-1 col-sm-12 col-sm-offset-1 col-md-4 col-md-offset-0   centered google_map" ng-if="showBars" >
+              <ng-map default-style="true" center= "{{center.lat}}, {{center.lon}}" zoom="12" >
+            
+                <info-window id="foo" on-mouseover="mouseover()">
+                  <div ng-non-bindable="">
+                        {{store.bar_name}}<br/>
+                  </div>
+                </info-window>
+            
+                <marker ng-repeat="(id, store) in stores" id="{{id}}"
+                  position="{{store.position}}"
+                  on-click="showStore(event, id)">
+                </marker>
+              </ng-map>
+            </div>
+            
+            
+        <div class="col-xs-4 col-sm-4 col-md-4  alert alert-success"
+            style="position: fixed;  right: 10px; top: 100px;  opacity: 0.9"  ng-if="alertSuccess" >
+              <strong>Success!</strong> Successfully uploaded to the server!
+        </div>
+        
+        <div class="col-xs-4 col-sm-4 col-md-4  alert alert-danger"
+            style="position: fixed;  right: 10px; top: 100px;  opacity: 0.9"  ng-if="alertDanger" >
+              <strong>Danger!</strong> Unfortunately, some error happened on the server!
+        </div>
+        
+
+            
+            
+        </div>
+    </div>
+    

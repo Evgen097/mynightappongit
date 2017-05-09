@@ -1,0 +1,156 @@
+/* Styles go here */
+
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px;
+}
+.row-content {
+  margin: 0px auto;
+  padding: 20px 0px;
+  border-bottom: 1px ridge;
+  min-height: 550px;
+}
+.row-footer {
+  margin: 0px auto;
+  margin-top: 0px ;
+  padding: 5px 0px;
+  background-color: #AfAfAf;
+}
+.jumbotron {
+  margin: 0px auto;
+  margin-top: -20px;
+  padding: 20px 30px;
+}
+
+.navbar-inverse {
+  background: black;
+  color: #ffffff;
+}
+
+address {
+  color: #0f0f0f;
+  font-size: 80%;
+  margin: 0px;
+}
+body {
+  background-color: #D3D3D3;
+  align: center;
+  padding: 0px 0px 0px 0px;
+  z-index: 0;
+}
+.tab-content {
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  padding: 0px;
+}
+.affix {
+  top: 100px;
+}
+
+.media-list{
+    text-align: center;
+    padding:  0px 0px 0px 0px;
+    margin:  0px 0px 0px 0px;
+}
+.media-body{
+    background-color: #A9A9A9;
+    text-align: center;
+    padding:  0px 0px 0px 0px;
+    margin:   0px 0px 0px 0px;
+}
+h2{
+    color: #2F4F4F;
+    text-align: center;
+}
+.poll_link:hover { 
+    text-decoration: none; /* Добавляем подчеркивание при наведении курсора на ссылку */
+    color: red; /* Ссылка красного цвета */
+} 
+h2:hover { 
+    color: red; /* Ссылка красного цвета */
+} 
+
+.logout:hover::after { 
+ content: attr(data-title); 
+}
+
+  .logout {
+    display: inline-block; /* Строчно-блочный элемент */
+    position: relative; /* Относительное позиционирование */
+   }
+   .logout:hover::after {
+    content: attr(data-title); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 10%; top: 100%; /* Положение подсказки */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: #D3D3D3; /* Полупрозрачный цвет фона */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 17px; /* Размер текста подсказки */
+    padding: 7px 20px; /* Поля */
+    border: 1px solid #D3D3D3; /* Параметры рамки */
+    color: #808080;
+    border-radius: 50px 50px 50px 50px;
+    opacity: 0.8;
+   }
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.loader_button {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    float: left;
+    margin:  0px 5px 0px 0px;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.google_map{
+  z-index: 2;
+  position: fixed;
+  right: 10px; 
+  top: 410px;
+  text-align: center;
+  margin:  20px 0px 20px 0px;
+  /* background-color: orange; /* Полупрозрачный цвет фона */
+}
+
+.button_guests{
+  float: right;
+  margin:  -35px 5px 0px 10px;
+}
+
+@media only screen and (max-width: 1000px), only screen and (max-device-width: 1000px) {
+
+  .google_map{
+      position: relative;
+      right: 0px; 
+      top: 0px;
+      text-align: center;
+      margin:  20px 0px 20px 0px;
+  }
+
+}
+
+@media only screen and (max-width: 1280px), only screen and (max-device-width: 1280px) {
+  .button_guests{
+    float: inherit;
+    position: relative;
+    margin:  10px 10px 10px 10px;
+  }
+}
